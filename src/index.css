@@ -1,0 +1,58 @@
+/* :root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424; 
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+} */
+*{
+  box-sizing: border-box;
+  font-family: 'Raleway';
+  /* border: 1px solid black; */
+}
+
+.instituto-logo, .unam-logo {
+  height: 100%; /* Ajusta la altura según lo que necesites */
+  width: auto;  /* Esto mantiene la proporción del logo */
+}
+
+.header {
+  height: 100px; /* Altura total */
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 40px;
+  color: white;
+  background: #033260;
+  letter-spacing: 2px;
+}
+
+.header-contenedor-texto {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  
+}
+
+.header-contenedor-texto * {
+  margin: 0;
+  font-weight: 400;
+}
+
+body {
+  margin: 0
+}
+
+.table-component {
+  padding-top: 40px;
+  max-width: 80%;
+  margin: auto;
+}
