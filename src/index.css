@@ -51,8 +51,17 @@ body {
   margin: 0
 }
 
-.table-component {
+.table-form-button {
   padding-top: 40px;
   max-width: 80%;
   margin: auto;
+  position: relative;
 }
+
+.form-button {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  top: 50px;
+}
+

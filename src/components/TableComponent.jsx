@@ -12,12 +12,12 @@ const TableComponent = ({ data }) => {
         {
             name: 'Corte',
             selector: row => row.cut ? "Si": "No",
-            maxWidth: '120px',
+            maxwidth: '120px',
         },
         {
             name: 'Sección Fina',
             selector: row => row.thin_section ? "Si": "No",
-            maxWidth: '120px',
+            maxwidth: '120px',
         },
         {
             name: 'Localidad',

@@ -2,6 +2,7 @@ import React from 'react';
 import useFetch from '../hooks/useFetch';
 import TableComponent from '../components/TableComponent';
 import Header from '../components/Header';
+import FormButton from '../components/FormButton';
 
 const HomePage = () => {
     const { data, loading, error } = useFetch();
@@ -11,9 +12,11 @@ const HomePage = () => {
 
     return (
         <div>
-            {/* <h1>Data Table</h1> */}
-            <Header></Header>
-            <div className='table-component'>
+            <Header></Header>        
+            <div className='table-form-button'>
+                <div className='form-button'>
+                    <FormButton></FormButton>
+                </div>
                 <TableComponent data={data} />
             </div>
         </div>
