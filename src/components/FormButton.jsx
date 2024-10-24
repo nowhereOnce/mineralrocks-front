@@ -7,6 +7,8 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import { FormControl, FormLabel, RadioGroup, FormControlLabel, Radio } from "@mui/material";
+
 
 export default function Form() {
     const [open, setOpen] = React.useState(false);
@@ -22,7 +24,7 @@ export default function Form() {
     //handleSubmit: Makes a POST request to the API to create a new rock in the DB.
     const handleSubmit = async (formJson) => {
         try {
-            const response = await axios.post("http://localhost:8000/rocks/", formJson, {
+            const response = await axios.post("http://localhost:8000/samples/", formJson, {
                 headers: {
                     "Content-Type": "application/json",
                 },
@@ -60,17 +62,19 @@ export default function Form() {
                 {/* <DialogContentText>
                     Por favor, ingrese los datos correspondientes con la muestra que desea agregar.
                 </DialogContentText> */}
+
                 <TextField
                     autoFocus
                     required
                     margin="dense"
-                    id="name"
-                    name="name"
+                    id="rock_name"
+                    name="rock_name"
                     label="Nombre de la roca"
                     type="text"
                     fullWidth
                     variant="standard"
                 />
+
                 <TextField
                     // required //description is not always required
                     margin="dense"
@@ -81,11 +85,77 @@ export default function Form() {
                     fullWidth
                     variant="standard"
                 />
+
+                <TextField
+                    required 
+                    margin="dense"
+                    id="location_name"
+                    name="location_name"
+                    label="Localidad"
+                    type="text"
+                    fullWidth
+                    variant="standard"
+                />
+
+                <TextField
+                    required 
+                    margin="dense"
+                    id="location_country"
+                    name="location_country"
+                    label="País"
+                    type="text"
+                    fullWidth
+                    variant="standard"
+                />
+
+                <br />
+                {/* Campo para "Corte" */}
+                <FormControl component="fieldset" margin="dense">
+                    <FormLabel component="legend">Corte</FormLabel>
+                    <RadioGroup
+                        row
+                        aria-label="cut"
+                        name="cut"
+                        defaultValue={false}
+                    >
+                        <FormControlLabel value={true} control={<Radio />} label="Sí" />
+                        <FormControlLabel value={false} control={<Radio />} label="No" />
+                    </RadioGroup>
+                </FormControl>
+
+                <br></br>
+                {/* Campo para "Sección fina" */}
+                <FormControl component="fieldset" margin="dense">
+                    <FormLabel component="legend">Sección fina</FormLabel>
+                    <RadioGroup
+                        row
+                        aria-label="thin_section"
+                        name="thin_section"
+                        defaultValue={false}
+                    >
+                        <FormControlLabel value={true} control={<Radio />} label="Sí" />
+                        <FormControlLabel value={false} control={<Radio />} label="No" />
+                    </RadioGroup>
+                </FormControl>
+
+                <TextField
+                    //required 
+                    margin="dense"
+                    id="picture"
+                    name="picture"
+                    label="URL de la imágen"
+                    type="text"
+                    fullWidth
+                    variant="standard"
+                />
+
             </DialogContent>
+
             <DialogActions>
                 <Button onClick={handleClose}>Cancelar</Button>
                 <Button type="submit">Aceptar</Button>
             </DialogActions>
+
         </Dialog>
     </React.Fragment>
     );
