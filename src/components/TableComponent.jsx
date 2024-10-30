@@ -1,22 +1,22 @@
 import React from 'react';
 import DataTable from 'react-data-table-component';
+import Actions from './Actions'; // Importar el componente
 
-const TableComponent = ({ data }) => {
+const TableComponent = ({ data, onUpdate, onDelete }) => {
     const columns = [
         {
             name: 'Nombre Roca',
             selector: row => row.rock_name,
             sortable: true,
         },
-        
         {
             name: 'Corte',
-            selector: row => row.cut ? "Si": "No",
+            selector: row => row.cut ? "Si" : "No",
             maxwidth: '120px',
         },
         {
             name: 'Sección Fina',
-            selector: row => row.thin_section ? "Si": "No",
+            selector: row => row.thin_section ? "Si" : "No",
             maxwidth: '120px',
         },
         {
@@ -30,10 +30,13 @@ const TableComponent = ({ data }) => {
             sortable: true,
         },
         {
-            name: 'Image',  // Nombre de la columna
-            cell: row => <img src={row.picture} alt={row.name} style={{ width: '50px', height: '50px', objectFit: 'cover' }} />,  // Renderizar la imagen
+            name: 'Image',
+            cell: row => <img src={row.picture} alt={row.rock_name} style={{ width: '50px', height: '50px', objectFit: 'cover' }} />,
         },
-        // Agregar más columnas según sea necesario
+        {
+            name: 'Acciones',
+            cell: row => <Actions row={row} onUpdate={onUpdate} onDelete={onDelete} />,
+        },
     ];
 
     return (
@@ -48,3 +51,4 @@ const TableComponent = ({ data }) => {
 };
 
 export default TableComponent;
+
