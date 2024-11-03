@@ -2,7 +2,7 @@
 import React from "react";
 import { TextField, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, DialogContent, DialogActions, Button } from "@mui/material";
 
-const RockForm = ({ handleSubmit, handleClose }) => (
+const RockForm = ({ defaultValues, row }) => (
     <>
         <DialogContent>
             <TextField
@@ -15,6 +15,7 @@ const RockForm = ({ handleSubmit, handleClose }) => (
                 type="text"
                 fullWidth
                 variant="standard"
+                defaultValue={defaultValues ? row.rock_name : ""}
             />
 
             <TextField
@@ -25,6 +26,7 @@ const RockForm = ({ handleSubmit, handleClose }) => (
                 type="text"
                 fullWidth
                 variant="standard"
+                defaultValue={defaultValues ? row.rock_description : ""}
             />
 
             <TextField
@@ -36,6 +38,7 @@ const RockForm = ({ handleSubmit, handleClose }) => (
                 type="text"
                 fullWidth
                 variant="standard"
+                defaultValue={defaultValues ? row.location_name : ""}
             />
 
             <TextField
@@ -47,6 +50,7 @@ const RockForm = ({ handleSubmit, handleClose }) => (
                 type="text"
                 fullWidth
                 variant="standard"
+                defaultValue={defaultValues ? row.location_country : ""}
             />
 
             <FormControl component="fieldset" margin="dense">
@@ -55,7 +59,7 @@ const RockForm = ({ handleSubmit, handleClose }) => (
                     row
                     aria-label="cut"
                     name="cut"
-                    defaultValue={false}
+                    defaultValue={defaultValues ? row.cut : false}
                 >
                     <FormControlLabel value={true} control={<Radio />} label="Sí" />
                     <FormControlLabel value={false} control={<Radio />} label="No" />
@@ -68,7 +72,7 @@ const RockForm = ({ handleSubmit, handleClose }) => (
                     row
                     aria-label="thin_section"
                     name="thin_section"
-                    defaultValue={false}
+                    defaultValue={defaultValues ? row.thin_section : false}
                 >
                     <FormControlLabel value={true} control={<Radio />} label="Sí" />
                     <FormControlLabel value={false} control={<Radio />} label="No" />
@@ -83,12 +87,9 @@ const RockForm = ({ handleSubmit, handleClose }) => (
                 type="text"
                 fullWidth
                 variant="standard"
+                defaultValue={defaultValues ? row.picture : ""}
             />
         </DialogContent>
-        <DialogActions>
-            <Button onClick={handleClose}>Cancelar</Button>
-            <Button type="submit">Aceptar</Button>
-        </DialogActions>
     </>
 );
 

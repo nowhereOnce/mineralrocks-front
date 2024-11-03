@@ -2,16 +2,49 @@ import React from 'react';
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
+import CustomDialog from './CustomDialog';
+import axios from 'axios';
 
 const Actions = ({ row, onUpdate, onDelete }) => {
-    const handleUpdate = () => {
-        console.log(`Updating...`)
-        onUpdate(row); // Lógica para actualizar el registro
+
+    //State to control the dialog
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
     };
 
-    const handleDelete = () => {
-        console.log(`Deleting...`)
-        onDelete(row); // Lógica para eliminar el registro
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    const handleUpdate = async (formJson) => {
+        try {
+            console.log(`Updating...${row.uid}`)
+            const response = await axios.put(`http://localhost:8000/samples/${row.uid}`, formJson, {
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+            console.log("Actualización exitosa:", response.data);
+        } catch (error) {
+            console.error("Error en la solicitud:", error);
+        }
+    };
+
+
+    const handleDeleteClick = async () => {
+        try {
+            console.log(`Deleting...${row.uid}`);
+            const response = await axios.delete(`http://localhost:8000/samples/${row.uid}`, {
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+            console.log("Eliminación exitosa:", response.data);
+        } catch (error) {
+            console.error("Error en la solicitud:", error);
+        }
     };
 
     return (
@@ -19,14 +52,17 @@ const Actions = ({ row, onUpdate, onDelete }) => {
             <IconButton
                 color="primary"
                 aria-label="Actualizar registro"
-                onClick={handleUpdate}
+                onClick={handleClickOpen}
             >
                 <EditIcon />
             </IconButton>
+
+            <CustomDialog open={open} handleClose={handleClose} handleUpdate={handleUpdate} defaultValues={true} row={row} />
+
             <IconButton
                 color="error"
                 aria-label="Eliminar registro"
-                onClick={handleDelete}
+                onClick={handleDeleteClick}
             >
                 <DeleteIcon />
             </IconButton>

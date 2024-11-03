@@ -1,12 +1,15 @@
 import * as React from "react";
 import axios from "axios";
 import Button from "@mui/material/Button";
+import CustomDialog from "./CustomDialog";
+import useFetch from "../hooks/useFetch";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import FormContent from "./FormContent"
+import { DialogActions } from "@mui/material";
 
 
-export default function Form() {
+export default function FormButton() {
     const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
@@ -36,29 +39,7 @@ export default function Form() {
         <Button variant="outlined" onClick={handleClickOpen}>
             Agregar Muestra
         </Button>
-        <Dialog
-            open={open}
-            onClose={handleClose}
-            PaperProps={{
-                component: "form",
-                onSubmit: async (event) => {
-                    event.preventDefault();
-                    const formData = new FormData(event.currentTarget);
-                    const formJson = Object.fromEntries(formData.entries());
-                    const name = formJson.name;
-                    const description = formData.description;
-                    console.log(formJson);
-                    await handleSubmit(formJson); // Calls the function to make the POST req
-                    handleClose();
-                },
-            }}
-        >
-            <DialogTitle>Agregar roca</DialogTitle>
-
-            {/* Form Component to Create or update a register */}
-            <FormContent></FormContent>
-
-        </Dialog>
+        <CustomDialog open={open} handleClose={handleClose} handleSubmit={handleSubmit} />
     </React.Fragment>
     );
 }

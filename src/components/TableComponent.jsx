@@ -35,7 +35,9 @@ const TableComponent = ({ data, onUpdate, onDelete }) => {
         },
         {
             name: 'Acciones',
-            cell: row => <Actions row={row} onUpdate={onUpdate} onDelete={onDelete} />,
+            // cell: row => <Actions row={row} onUpdate={onUpdate} onDelete={onDelete} />,
+            cell: row => <Actions row={row} />,
+
         },
     ];
 
