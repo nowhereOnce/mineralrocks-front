@@ -5,7 +5,7 @@ import Header from '../components/Header';
 import FormButton from '../components/FormButton';
 
 const HomePage = () => {
-    const { data, loading, error } = useFetch();
+    const { data, loading, error, reload } = useFetch();
 
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
@@ -15,9 +15,9 @@ const HomePage = () => {
             <Header></Header>        
             <div className='table-form-button'>
                 <div className='form-button'>
-                    <FormButton></FormButton>
+                    <FormButton reload={reload}></FormButton>
                 </div>
-                <TableComponent data={data} />
+                <TableComponent data={data} reload={reload} />
             </div>
         </div>
     );

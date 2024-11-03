@@ -2,14 +2,8 @@ import * as React from "react";
 import axios from "axios";
 import Button from "@mui/material/Button";
 import CustomDialog from "./CustomDialog";
-import useFetch from "../hooks/useFetch";
-import Dialog from "@mui/material/Dialog";
-import DialogTitle from "@mui/material/DialogTitle";
-import FormContent from "./FormContent"
-import { DialogActions } from "@mui/material";
 
-
-export default function FormButton() {
+export default function FormButton({ reload }) {
     const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
@@ -29,6 +23,7 @@ export default function FormButton() {
                 },
             });
             console.log("Registro exitoso:", response.data);
+            await reload(); // Recargar datos
         } catch (error) {
             console.error("Error en la solicitud:", error);
         }

@@ -5,7 +5,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import CustomDialog from './CustomDialog';
 import axios from 'axios';
 
-const Actions = ({ row, onUpdate, onDelete }) => {
+const Actions = ({ row, reload }) => {
 
     //State to control the dialog
     const [open, setOpen] = React.useState(false);
@@ -27,6 +27,7 @@ const Actions = ({ row, onUpdate, onDelete }) => {
                 },
             });
             console.log("Actualización exitosa:", response.data);
+            await reload(); // Recargar datos
         } catch (error) {
             console.error("Error en la solicitud:", error);
         }
@@ -42,6 +43,7 @@ const Actions = ({ row, onUpdate, onDelete }) => {
                 },
             });
             console.log("Eliminación exitosa:", response.data);
+            await reload(); // Recargar datos
         } catch (error) {
             console.error("Error en la solicitud:", error);
         }

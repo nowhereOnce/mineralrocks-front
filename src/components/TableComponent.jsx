@@ -2,7 +2,7 @@ import React from 'react';
 import DataTable from 'react-data-table-component';
 import Actions from './Actions'; // Importar el componente
 
-const TableComponent = ({ data, onUpdate, onDelete }) => {
+const TableComponent = ({ data, reload }) => {
     const columns = [
         {
             name: 'Nombre Roca',
@@ -35,8 +35,7 @@ const TableComponent = ({ data, onUpdate, onDelete }) => {
         },
         {
             name: 'Acciones',
-            // cell: row => <Actions row={row} onUpdate={onUpdate} onDelete={onDelete} />,
-            cell: row => <Actions row={row} />,
+            cell: row => <Actions row={row} reload={reload}/>,
 
         },
     ];
