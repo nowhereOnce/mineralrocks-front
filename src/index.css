@@ -62,6 +62,16 @@ body {
   position: absolute;
   z-index: 1;
   right: 0;
-  top: 50px;
+  top: 35px;
+}
+
+.search-bar {
+  margin-bottom: 20px;
+  position: absolute;
+  z-index: 1;
+  right: 200px;
+  width: 300px;
+  top: 25px;
+
 }
 
