@@ -1,8 +1,29 @@
-# React + Vite
+# Rocks Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este es el frontend del proyecto Rocks, realizado con React y Vite. Este proyecto se conecta con un backend cuyo repositorio se encuentra en tu perfil con el nombre de [rocks-back](https://github.com/nowhereOnce/rocks-back.git).
 
-Currently, two official plugins are available:
+## Requisitos
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Para poder correr este proyecto, es necesario contar con las siguientes herramientas instaladas:
+
+- Node.js
+- Material-UI
+
+## Instalación
+
+1. Clona el repositorio:
+    ```sh
+    git clone https://github.com/tu-usuario/rocks-front.git
+    cd rocks-front
+    ```
+
+2. Instala las dependencias:
+    ```sh
+    npm install
+    ```
+
+## Ejecución
+
+Para ejecutar el proyecto en modo de desarrollo, utiliza el siguiente comando:
+```sh
+npm run dev

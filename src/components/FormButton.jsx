@@ -31,7 +31,7 @@ export default function FormButton({ reload }) {
 
     return (
     <React.Fragment>
-        <Button variant="outlined" onClick={handleClickOpen}>
+        <Button variant="outlined" onClick={handleClickOpen} sx={{height: "55px"}}>
             Agregar Muestra
         </Button>
         <CustomDialog open={open} handleClose={handleClose} handleSubmit={handleSubmit} />
