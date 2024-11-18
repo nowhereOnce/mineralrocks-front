@@ -15,7 +15,7 @@ const TableComponent = ({ data, reload }) => {
             maxwidth: '120px',
         },
         {
-            name: 'Sección Fina',
+            name: 'Lámina Delgada',
             selector: row => row.thin_section ? "Si" : "No",
             maxwidth: '120px',
         },
