@@ -4,6 +4,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import CustomDialog from './CustomDialog';
 import axios from 'axios';
+import { handleRequestError } from '../utils/requestErrorHandler';
 
 const Actions = ({ row, reload }) => {
 
@@ -31,12 +32,13 @@ const Actions = ({ row, reload }) => {
             console.log("Actualización exitosa:", response.data);
             await reload(); // Recargar datos
         } catch (error) {
-            console.error("Error en la solicitud:", error);
+            handleRequestError(error);
         }
     };
 
 
     const handleDeleteClick = async () => {
+
         try {
             const token = localStorage.getItem('token');
             console.log(`Deleting...${row.uid}`);
@@ -48,8 +50,9 @@ const Actions = ({ row, reload }) => {
             });
             console.log("Eliminación exitosa:", response.data);
             await reload(); // Recargar datos
+
         } catch (error) {
-            console.error("Error en la solicitud:", error);
+            handleRequestError(error);
         }
     };
 
