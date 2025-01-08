@@ -20,10 +20,12 @@ const Actions = ({ row, reload }) => {
 
     const handleUpdate = async (formJson) => {
         try {
+            const token = localStorage.getItem('token');
             console.log(`Updating...${row.uid}`)
             const response = await axios.put(`http://localhost:8000/samples/${row.uid}`, formJson, {
                 headers: {
                     "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`,
                 },
             });
             console.log("Actualización exitosa:", response.data);
@@ -36,10 +38,12 @@ const Actions = ({ row, reload }) => {
 
     const handleDeleteClick = async () => {
         try {
+            const token = localStorage.getItem('token');
             console.log(`Deleting...${row.uid}`);
             const response = await axios.delete(`http://localhost:8000/samples/${row.uid}`, {
                 headers: {
                     "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`,
                 },
             });
             console.log("Eliminación exitosa:", response.data);

@@ -17,9 +17,11 @@ export default function FormButton({ reload }) {
     //handleSubmit: Makes a POST request to the API to create a new rock in the DB.
     const handleSubmit = async (formJson) => {
         try {
+            const token = localStorage.getItem('token');
             const response = await axios.post("http://localhost:8000/samples/", formJson, {
                 headers: {
                     "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`,
                 },
             });
             console.log("Registro exitoso:", response.data);
