@@ -2,7 +2,7 @@ import React from 'react';
 import DataTable from 'react-data-table-component';
 import Actions from './Actions'; // Importar el componente
 
-const TableComponent = ({ data, reload }) => {
+const TableComponent = ({ data, reload, isAuthenticated }) => {
     const columns = [
         {
             name: 'Nombre Roca',
@@ -40,10 +40,14 @@ const TableComponent = ({ data, reload }) => {
         },
     ];
 
+    //New list without the "Acciones" column
+    const columns_without_Acciones = columns.filter(item => item.name !== 'Acciones');
+
+
     return (
         <DataTable
             title="Muestras de rocas"
-            columns={columns}
+            columns={isAuthenticated ? columns : columns_without_Acciones}
             data={data}
             pagination
             highlightOnHover

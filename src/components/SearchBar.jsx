@@ -1,7 +1,7 @@
 import React from 'react';
 import TextField from '@mui/material/TextField';
 
-const SearchBar = ({ searchTerm, setSearchTerm }) => {
+const SearchBar = ({ searchTerm, setSearchTerm, isAuthenticated}) => {
     const handleSearchChange = (event) => {
         setSearchTerm(event.target.value);
     };
@@ -13,6 +13,7 @@ const SearchBar = ({ searchTerm, setSearchTerm }) => {
             value={searchTerm}
             onChange={handleSearchChange}
             fullWidth
+            sx={!isAuthenticated ? { right: '-200px' } : {right: '0px'}}
         />
     );
 };

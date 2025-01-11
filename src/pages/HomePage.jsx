@@ -5,7 +5,7 @@ import Header from '../components/Header';
 import FormButton from '../components/FormButton';
 import SearchBar from '../components/SearchBar';
 import { useState, useEffect } from 'react';
-import LoginButton from '../components/LoginButton';
+import { render } from 'react-dom';
 
 const HomePage = () => {
     //Fetch data from the API
@@ -29,18 +29,23 @@ const HomePage = () => {
         item.rock_name.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
+    const renderFormButton = () => {
+        if (isAuthenticated) {
+            return (<div className='form-button'>
+                        <FormButton reload={reload}></FormButton>
+                    </div>);
+        }
+    }
+
     return (
         <div>
-            <Header></Header>
-            {!isAuthenticated && <LoginButton setIsAuthenticated={setIsAuthenticated} />}        
+            <Header isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} ></Header>
             <div className='table-form-button'>
-                <div className='form-button'>
-                    <FormButton reload={reload}></FormButton>
-                </div>
+                {renderFormButton()}
                 <div className='search-bar'>
-                    <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+                    <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} isAuthenticated={isAuthenticated}/>
                 </div>
-                <TableComponent data={filteredData} reload={reload} />
+                <TableComponent data={filteredData} reload={reload} isAuthenticated={isAuthenticated} />
             </div>
         </div>
     );
