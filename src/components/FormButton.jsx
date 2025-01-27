@@ -2,6 +2,7 @@ import * as React from "react";
 import axios from "axios";
 import Button from "@mui/material/Button";
 import CustomDialog from "./CustomDialog";
+import { handleRequestError } from '../utils/requestErrorHandler';
 
 export default function FormButton({ reload }) {
     const [open, setOpen] = React.useState(false);
@@ -27,7 +28,8 @@ export default function FormButton({ reload }) {
             console.log("Registro exitoso:", response.data);
             await reload(); // Recargar datos
         } catch (error) {
-            console.error("Error en la solicitud:", error);
+            //console.error("Error en la solicitud:", error);
+            handleRequestError(error);
         }
     };
 
