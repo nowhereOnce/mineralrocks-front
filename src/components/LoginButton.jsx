@@ -47,7 +47,7 @@ export default function LoginButton({setIsAuthenticated}) {
 
     return (
     <React.Fragment>
-        <Button variant="contained" onClick={handleClickOpen} sx={{height: "55px"}}>
+        <Button className="login-button" variant="contained" onClick={handleClickOpen} sx={{height: "55px"} }>
             Iniciar sesión
         </Button>
         <Dialog 

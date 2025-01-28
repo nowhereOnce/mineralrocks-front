@@ -24,7 +24,7 @@
 }
 
 .header {
-  height: 100px; /* Altura total */
+  height: 110px; /* Altura total */
   display: flex;
   align-items: center;
   gap: 20px;
@@ -47,6 +47,9 @@
   font-weight: 400;
 }
 
+.texto-unam-abreviado {
+  display: none;
+}
 body {
   margin: 0
 }
@@ -75,3 +78,107 @@ body {
 
 }
 
+.expanded-component {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 10px; /* Espaciado entre elementos */
+  width: 100%;
+  flex-wrap: wrap;
+  /* border: 1px solid black; */
+  padding: 20px 40px;
+}
+
+
+.expanded-component-info {
+  display: flex;
+  flex-direction: column;
+  flex: 0.5 0.5;
+  min-width: 260px; /* Tamaño mínimo antes de que colapse */
+  /* border: 1px solid blue; */
+  padding: 10px;
+  box-sizing: border-box;
+  max-width: 400px;
+  justify-content: center;
+}
+
+.expanded-component-info span {
+  font-size: 0.9rem;
+}
+
+.expanded-component-info img {
+  margin: auto;
+  border-radius: 10px;
+}
+
+/* Estilos para pantallas menores a 500px */
+@media screen and (max-width: 910px) {
+  .header {
+    height: 100px; /* Altura total */
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 10px 10px;
+    color: white;
+    background: #033260;
+    letter-spacing: 2px;
+  }
+
+  .header-contenedor-texto {
+    font-size: 0.8rem;
+    justify-content: space-evenly;
+    padding-right: 5px;
+  }
+
+  .header img {
+    height: 50px;
+  }
+
+  .unam-logo{
+    margin-right: 10px;
+  }
+
+  .header button {
+    width: 40%;
+    margin-right: 10px;
+    height: 80%;
+    max-width: 150px;
+  }
+
+  .search-bar {
+    margin-bottom: 20px;
+    position: relative;
+    width: 100%;
+    right: 0
+  }
+
+  .table-form-button {
+    padding-top: 10px;
+    max-width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: auto;
+  }
+
+  .form-button {
+    position: relative;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .header-contenedor-texto h2{
+    font-size: 1rem;
+  }
+
+  .header-contenedor-texto h4 {
+    font-size: 0.8rem;
+  }
+  .texto-unam-abreviado {
+    display: flex;
+  }
+
+  .texto-unam {
+    display: none;
+  }
+  
+}

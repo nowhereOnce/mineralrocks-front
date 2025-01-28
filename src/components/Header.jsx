@@ -8,7 +8,8 @@ const Header = ({isAuthenticated, setIsAuthenticated, reload}) => {
             <img className='unam-logo' src="unam_logo.png" alt="unam-logo" />
             <div className='header-contenedor-texto'>
                 <h2>INSTITUTO DE GEOLOGÍA</h2>
-                <h4>UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO</h4>
+                <h4 className='texto-unam'>UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO</h4>
+                <h4 className='texto-unam-abreviado'>UNAM</h4>
             </div>
             {!isAuthenticated && <LoginButton setIsAuthenticated={setIsAuthenticated} reload={reload} />}  
         </div>
