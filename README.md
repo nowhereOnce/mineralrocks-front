@@ -9,9 +9,9 @@ Para poder correr este proyecto, es necesario contar con las siguientes herramie
 - Node.js
 [Instructions](https://nodejs.org/en/download)
 - Material-UI
-'''
+```sh
 npm i @mui/material @mui/icons-material @emotion/styled @emotion/react
-'''
+```
 
 ## Instalación
 
