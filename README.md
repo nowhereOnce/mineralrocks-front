@@ -7,7 +7,7 @@ Este es el frontend del proyecto Rocks, realizado con React y Vite. Este proyect
 Para poder correr este proyecto, es necesario contar con las siguientes herramientas instaladas:
 
 - Node.js
-[text](https://nodejs.org/en/download)
+[Instructions](https://nodejs.org/en/download)
 - Material-UI
 '''
 npm i @mui/material @mui/icons-material @emotion/styled @emotion/react
