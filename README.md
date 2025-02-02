@@ -1,6 +1,6 @@
 # Rocks Frontend
 
-Este es el frontend del proyecto Rocks, realizado con React y Vite. Este proyecto se conecta con un backend cuyo repositorio se encuentra en tu perfil con el nombre de [rocks-back](https://github.com/nowhereOnce/rocks-back.git).
+Este es el frontend del proyecto Rocks, realizado con React y Vite. Este proyecto se conecta con un backend cuyo repositorio se encuentra en [rocks-back](https://github.com/nowhereOnce/rocks-back.git).
 
 ## Requisitos
 
